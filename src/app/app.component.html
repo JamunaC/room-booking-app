@@ -1,0 +1,57 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="main-page">
+  <div class="c-header">
+    <i class="fa fa-users mg-r-8" aria-hidden="true"></i> Choose number of
+    <strong>people</strong>
+  </div>
+  <div class="c-content">
+    <table>
+      <tr>
+        <td>
+          <i class="fa fa-bed mg-r-8" aria-hidden="true"></i> ROOMS</td>
+        <td style="text-align:right;">
+          <form>
+            <button class="value-button" (click)="decreaseRooms()" [disabled]="numberOfRooms == 1">
+              <i class="fa fa-minus" aria-hidden="true"></i>
+            </button>
+            <input type="number" min="1" max="5" name="rooms" [(ngModel)]="numberOfRooms" #rooms="ngModel" disabled/>
+            <button class="value-button red-bg" (click)="increaseRooms()" [disabled]="numberOfRooms == 5">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <i class="fa fa-user mg-r-8" aria-hidden="true"></i> ADULTS</td>
+        <td style="text-align:right;">
+          <form>
+            <button class="value-button" (click)="decreaseAdults()" [disabled]="numberOfAdults == 1">
+              <i class="fa fa-minus" aria-hidden="true"></i>
+            </button>
+            <input type="number" name="adults" [(ngModel)]="numberOfAdults" #adults="ngModel" disabled/>
+            <button class="value-button red-bg" (click)="increaseAdults()" [disabled]="(numberOfChildren + numberOfAdults) == 20">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <i class="fa fa-child mg-r-8" aria-hidden="true"></i> CHILDREN</td>
+        <td style="text-align:right;">
+          <form>
+            <button class="value-button" (click)="decreaseChildren()" [disabled]="numberOfChildren == 0">
+              <i class="fa fa-minus" aria-hidden="true"></i>
+            </button>
+            <input type="number" name="children" [(ngModel)]="numberOfChildren" #children="ngModel" disabled/>
+            <button class="value-button red-bg" (click)="increaseChildren()" [disabled]="(numberOfChildren + numberOfAdults) == 20">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<router-outlet></router-outlet>
